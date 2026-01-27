@@ -595,52 +595,80 @@ body::before {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .skill-category {
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: center;
+    position: relative;
 }
 
 .skill-card {
     background: var(--bg-card);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
+    border-radius: 1.25rem;
+    padding: 2rem 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    position: relative;
 }
 
 .skill-card:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3),
+    transform: translateY(-8px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
         0 0 20px rgba(99, 102, 241, 0.2);
-    border-color: rgba(99, 102, 241, 0.4);
-    position: relative;
-    z-index: 10;
 }
 
 .skill-card-indigo:hover {
-    border-color: rgba(99, 102, 241, 0.5);
+    border-color: var(--accent-primary);
 }
 
 .skill-card-purple:hover {
-    border-color: rgba(168, 85, 247, 0.5);
-    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+    border-color: var(--accent-secondary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(168, 85, 247, 0.2);
 }
 
 .skill-icon {
     color: #818cf8;
-    width: 32px;
-    height: 32px;
-    margin-bottom: 0.75rem;
-    transition: transform 0.3s;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1.25rem;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.3));
 }
 
 .skill-card-purple .skill-icon {
     color: #a78bfa;
+    filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.3));
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.1) translateY(-5px);
 }
 
 
